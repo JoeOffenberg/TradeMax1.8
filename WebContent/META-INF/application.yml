@@ -11,7 +11,7 @@ spring:
     banner-mode: off
 
 email: yaml@mkyong.com
-thread-pool: 10
+thread-pool: 20
 
 wordpress:
   menus:
