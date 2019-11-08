@@ -30,5 +30,4 @@ wordpress:
       path: /dev2
     - ip: 127.0.0.4
       path: /dev4
-    - ip: 127.0.0.5
-      path: /dev5
+  
