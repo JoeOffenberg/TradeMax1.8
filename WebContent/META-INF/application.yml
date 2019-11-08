@@ -18,9 +18,7 @@ wordpress:
     - title: Home
       name: Home
       path: /
-    - title: About
-      name: About
-      path: /about
+   
   themes:
     default-folder: /wp-content/themes/mkyong
   servers:
