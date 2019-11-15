@@ -97,7 +97,7 @@ pipeline {
                   }
                   
                 stage('Sonarqube'){ 
-                steps {sh 'sonar-scanner' 55
+                steps {sh 'sonar-scanner 55'
                      }
                   }
                   
