@@ -34,6 +34,20 @@ pipeline {
                 tag: '', 
                 autoRecognize: true,
                 allowDelete: false)
+                
+                SWEAGLEUpload(
+                actionName: 'Upload JSON Files', 
+                fileLocation: "*.json", 
+                format: 'json', 
+                markFailed: false, 
+                nodePath: 'Applications,TradeMax,Files', 
+                onlyParent: false, 
+                showResults: true,
+                withSnapshot: false,
+                description: 'Upload json files',
+                tag: '', 
+                autoRecognize: false,
+                allowDelete: false)
 
             }
         }
