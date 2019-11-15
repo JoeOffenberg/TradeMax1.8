@@ -8,11 +8,9 @@ pipeline {
          sh "ls -la"
     	}
     }
-      stage ('Sweagle versioning and validation'){
-                                     
+      stage ('Validation'){
                                  
-
-      parallel {
+        parallel {
         
         stage ('Sweagle versioning and validation'){
 
@@ -86,7 +84,7 @@ pipeline {
         }
 			}
 			
-		stage ('Code testing'){     stage('jUnit Test'){ 
+		stage ('Code Validation'){     stage('jUnit Test'){ 
                 steps {echo "Testing..."
                      }
                   }
