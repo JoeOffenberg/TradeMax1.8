@@ -96,8 +96,8 @@ pipeline {
                      }
                   }
                   
-                stage('Sonar Cube'){ 
-                steps {sleep(time:55,unit:"SECONDS")
+                stage('Sonarqube'){ 
+                steps {sh sonar-scanner 55
                      }
                   }
                   
@@ -126,14 +126,14 @@ pipeline {
        	          			
 			    stage('Selenium API'){ 
                 steps { echo "Selenium API..2..3..4"
-                		sleep(time:35,unit:"SECONDS")
+                		sleep(time:25,unit:"SECONDS")
                 		echo "Selenium API..2..3..4"
                      }
                   }
                   
                 stage('Selenium UI'){ 
                 steps {	echo "Selenium UI..2..3..4"
-                		sleep(time:25,unit:"SECONDS")
+                		sh slenium 35
                 		echo "Selenium API..2..3..4"
                      }
                   }
