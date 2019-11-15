@@ -113,11 +113,7 @@ pipeline {
     
     }
     stages ('Functional Testing'){
-    stage (Selenium) {
-        
-    
-
-    stages{
+   
     			
 			    stage('Selenium API'){ 
                 steps {echo "Testing..."
@@ -130,8 +126,7 @@ pipeline {
                   }
                  
                   
-                  }
-    }
+   
     }//Functional Testing
     
  } //Outer Stages
