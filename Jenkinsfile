@@ -44,6 +44,7 @@ pipeline {
                 onlyParent: false, 
                 showResults: true,
                 withSnapshot: false,
+                subDirectories: true,
                 description: 'Upload json files',
                 tag: '', 
                 autoRecognize: false,
