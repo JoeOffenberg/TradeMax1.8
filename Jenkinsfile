@@ -86,7 +86,7 @@ pipeline {
             }
         }
 			}
-			}
+			} //Sweagle versioining and validation
 			
 		stage ('Code Validation'){ 
 		stages{
@@ -109,6 +109,7 @@ pipeline {
                  
                   
         }
-       }
-    }
-}
+       } //parallel
+      } //Validation Stage
+	 } //Outer Stages
+	} //Pipeline
