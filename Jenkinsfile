@@ -113,6 +113,12 @@ pipeline {
     
     }
     
+    stage ('Build'){
+    steps {sleep(time:35,unit:"SECONDS")
+                     }
+    
+    }
+    
     stage (Functional) {
         
     
