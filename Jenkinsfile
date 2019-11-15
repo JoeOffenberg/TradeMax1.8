@@ -133,7 +133,7 @@ pipeline {
                   
                 stage('Selenium UI'){ 
                 steps {	echo "Selenium UI..2..3..4"
-                		sh 'slenium 35'
+                		sh 'selenium 35'
                 		echo "Selenium API..2..3..4"
                      }
                   }
