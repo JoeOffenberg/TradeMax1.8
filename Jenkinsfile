@@ -7,6 +7,16 @@ pipeline {
          git url: 'https://github.com/JoeOffenberg/TradeMax.git'
          sh "ls -la"
     }}
+      
+      parallel {
+          
+      
+	  stage ('Sweagle versioning and validation'){
+
+	                                 
+
+	                             
+	
         stage('UploadConfig'){
         
             steps {
@@ -43,10 +53,7 @@ pipeline {
             	}	
             
             
-            stage('jUnit Test'){ 
-                steps {echo "Testing..."
-                     }
-                  }
+       
                 
             
         stage('Snapshot Config') {
@@ -78,7 +85,23 @@ pipeline {
               
             }
         }
-
-       
+			}
+			
+		stage ('Code testing'){     stage('jUnit Test'){ 
+                steps {echo "Testing..."
+                     }
+                  }
+                  
+                  stage('Selenium'){ 
+                steps {echo "Testing..."
+                     }
+                  }
+                  stage('Sonar Cube'){ 
+                steps {echo "Testing..."
+                     }
+                  }
+                  
+                  }	
+       }
     }
 }
