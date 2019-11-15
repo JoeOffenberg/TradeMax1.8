@@ -112,8 +112,8 @@ pipeline {
                      }
     
     }
-    stages {
-    stage (Selenium) {
+    
+    stage (Functional) {
         
     
 
@@ -131,7 +131,6 @@ pipeline {
                  
                   
                   }
-    }
     }//Functional Testing
     
  } //Outer Stages
