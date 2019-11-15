@@ -125,12 +125,16 @@ pipeline {
         parallel {
        	          			
 			    stage('Selenium API'){ 
-                steps {sleep(time:35,unit:"SECONDS")
+                steps { echo "Selenium API..2..3..4"
+                		sleep(time:35,unit:"SECONDS")
+                		echo "Selenium API..2..3..4"
                      }
                   }
                   
                 stage('Selenium UI'){ 
-                steps {sleep(time:25,unit:"SECONDS")
+                steps {	echo "Selenium UI..2..3..4"
+                		sleep(time:25,unit:"SECONDS")
+                		echo "Selenium API..2..3..4"
                      }
                   }
                  
