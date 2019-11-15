@@ -13,6 +13,9 @@ pipeline {
         parallel {
         
         stage ('Sweagle versioning and validation'){
+		stages ('Sweagle Steps'){
+		           
+		       
 
         stage('UploadConfig'){
         
@@ -83,13 +86,17 @@ pipeline {
             }
         }
 			}
+			}
 			
-		stage ('Code Validation'){     stage('jUnit Test'){ 
+		stage ('Code Validation'){ 
+		stages{
+    			
+			    stage('jUnit Test'){ 
                 steps {echo "Testing..."
                      }
                   }
                   
-                  stage('Selenium'){ 
+                stage('Selenium'){ 
                 steps {echo "Testing..."
                      }
                   }
@@ -99,6 +106,8 @@ pipeline {
                   }
                   
                   }	
+                 
+                  
         }
        }
     }
