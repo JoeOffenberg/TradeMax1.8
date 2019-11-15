@@ -111,7 +111,7 @@ pipeline {
                      }
                   }
                   
-                stage('Sonarqube'){ 
+                stage('SonarQube'){ 
                 steps {sh 'sonar-scanner 55'
                      }
                   }
