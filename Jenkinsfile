@@ -110,6 +110,6 @@ pipeline {
                   
         }
        } //parallel
-      } //Validation Stage
-	 } //Outer Stages
-	} //Pipeline
+    } //Validation Stage
+ } //Outer Stages
+} //Pipeline
