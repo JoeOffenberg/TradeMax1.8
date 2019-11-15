@@ -97,7 +97,7 @@ pipeline {
                   }
                   
                 stage('Sonar Cube'){ 
-                steps {echo "Testing..."
+                steps {sleep(time:55,unit:"SECONDS")
                      }
                   }
                   
@@ -107,11 +107,7 @@ pipeline {
         }
        } //parallel
     } //Validation Stage
-    stage ('Deployment'){
-    steps {sleep(time:35,unit:"SECONDS")
-                     }
     
-    }
     
     stage ('Build'){
     steps {sleep(time:35,unit:"SECONDS")
@@ -119,24 +115,27 @@ pipeline {
     
     }
     
-    stage (Functional) {
-        
+    stage ('Deployment'){
+    steps {sleep(time:35,unit:"SECONDS")
+                     }
     
-
-    stages{
-    			
+    }
+    
+    stage (Functional) {
+        parallel {
+       	          			
 			    stage('Selenium API'){ 
-                steps {echo "Testing..."
+                steps {sleep(time:35,unit:"SECONDS")
                      }
                   }
                   
                 stage('Selenium UI'){ 
-                steps {echo "Testing..."
+                steps {sleep(time:25,unit:"SECONDS")
                      }
                   }
                  
-                  
-                  }
+    }
+    
     }//Functional Testing
     
  } //Outer Stages
