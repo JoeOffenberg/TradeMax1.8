@@ -6,17 +6,16 @@ pipeline {
          echo workspace
          git url: 'https://github.com/JoeOffenberg/TradeMax.git'
          sh "ls -la"
-    }}
-      
+    	}
+    }
+      stage ('Sweagle versioning and validation'){
+                                     
+                                 
+
       parallel {
-          
-      
-	  stage ('Sweagle versioning and validation'){
+        
+        stage ('Sweagle versioning and validation'){
 
-	                                 
-
-	                             
-	
         stage('UploadConfig'){
         
             steps {
@@ -102,6 +101,7 @@ pipeline {
                   }
                   
                   }	
+        }
        }
     }
 }
