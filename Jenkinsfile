@@ -12,7 +12,7 @@ pipeline {
                                  
         parallel {
         
-        stage ('Sweagle versioning and validation'){
+        stage ('Config'){
 		stages ('Sweagle Steps'){
 		           
 		       
@@ -47,7 +47,7 @@ pipeline {
                     errMax: 0,
                     markFailed: true,
                     showResults: true, 
-                    retryCount: 10,
+                    retryCount: 5,
                     retryInterval: 30)
                     }
             	}	
@@ -78,7 +78,7 @@ pipeline {
               exporter: 'retrieveAllDataFromNode',
               args: "settings.json",
               format: 'json',
-              fileLocation: "/var/lib/jenkins/workspace/${JOB_NAME}/settings.json",
+              fileLocation: "settings.json",
               markFailed: false,
               showResults: false)
               
@@ -88,7 +88,7 @@ pipeline {
 			}
 			} //Sweagle versioining and validation
 			
-		stage ('Code Validation'){ 
+		stage ('Code'){ 
 		stages{
     			
 			    stage('jUnit Test'){ 
@@ -96,11 +96,7 @@ pipeline {
                      }
                   }
                   
-                stage('Selenium'){ 
-                steps {echo "Testing..."
-                     }
-                  }
-                  stage('Sonar Cube'){ 
+                stage('Sonar Cube'){ 
                 steps {echo "Testing..."
                      }
                   }
@@ -111,5 +107,28 @@ pipeline {
         }
        } //parallel
     } //Validation Stage
+    stage ('Deployment'){
+    steps {sleep(time:35,unit:"SECONDS")
+                     }
+    
+    }
+    stage ('Functional Testing'){
+    stages{
+    			
+			    stage('Selenium API'){ 
+                steps {echo "Testing..."
+                     }
+                  }
+                  
+                stage('Selenium UI'){ 
+                steps {echo "Testing..."
+                     }
+                  }
+                 
+                  
+                  }
+    
+    }//Functional Testing
+    
  } //Outer Stages
 } //Pipeline
