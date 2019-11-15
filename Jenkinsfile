@@ -113,6 +113,10 @@ pipeline {
     
     }
     stage ('Functional Testing'){
+    stage (Selenium) {
+        
+    
+
     stages{
     			
 			    stage('Selenium API'){ 
@@ -127,7 +131,7 @@ pipeline {
                  
                   
                   }
-    
+    }
     }//Functional Testing
     
  } //Outer Stages
