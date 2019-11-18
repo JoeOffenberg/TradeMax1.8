@@ -91,7 +91,7 @@ pipeline {
               actionName: 'Export TradeMax-PRD settings.json',
               mdsName: 'TradeMax-PRD',
               exporter: 'retrieveAllDataFromNode',
-              args: "settings.json",
+              args: "mycnf",
               format: 'json',
               fileLocation: "settings.json",
               markFailed: false,
