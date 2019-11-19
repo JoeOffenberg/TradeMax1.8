@@ -95,7 +95,7 @@ pipeline {
               format: 'json',
               fileLocation: "settings.json",
               markFailed: false,
-              showResults: false)
+              showResults: true)
               
               
             }
