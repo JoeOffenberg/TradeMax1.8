@@ -94,7 +94,7 @@ pipeline {
               args: "mycnf",
               format: 'json',
               fileLocation: "settings.json",
-              markFailed: false,
+              markFailed: true,
               showResults: true)
               
               
