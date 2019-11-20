@@ -4,8 +4,10 @@ pipeline {
          stage('Retrieve Sources') {
               steps {
          echo workspace
-         git url: 'https://gitlab.com/sweagle/TradeMax'
-         sh "ls -la"
+         git branch: 'master',
+    	 credentialsId: 'sweaglePoC',
+         url: 'https://gitlab.com/sweagle/TradeMax'
+         
     	}
     }
       stage ('Validation'){
