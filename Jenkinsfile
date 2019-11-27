@@ -5,7 +5,7 @@ pipeline {
               steps {
          echo workspace
          git branch: 'master',
-    	 credentialsId: 'sweaglePoC',
+    	 credentialsId: 'gitLabRead',
          url: 'https://gitlab.com/sweagle/TradeMax'
          
     	}
