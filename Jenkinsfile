@@ -30,7 +30,7 @@ pipeline {
                 markFailed: false, 
                 nodePath: 'infra,db023,mycnf', 
                 onlyParent: false, 
-                showResults: false,
+                showResults: true,
                 withSnapshot: false,
                 description: 'Upload MySQL config',
                 tag: '', 
