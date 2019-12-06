@@ -63,7 +63,7 @@ pipeline {
                     warnMax: -1,
                     errMax: 0,
                     markFailed: true,
-                    showResults: true, 
+                    showResults: false, 
                     retryCount: 5,
                     retryInterval: 30)
                     }
