@@ -28,7 +28,7 @@ pipeline {
                 fileLocation: "WebContent/META-INF/my.cnf", 
                 format: 'INI', 
                 markFailed: false, 
-                nodePath: 'infra,db023,mycnf', 
+                nodePath: 'Infrastructure,db023,mycnf', 
                 onlyParent: false, 
                 showResults: false,
                 withSnapshot: false,
