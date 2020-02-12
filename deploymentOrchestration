@@ -8,15 +8,14 @@ pipeline {
 		    stage ('assigned release specification'){
 		    steps {sleep(time:5,unit:"SECONDS")
 		                     }
-		    
-		    }
+		   }
 		    
 		    stage ('config data validation status'){
 		    steps {sleep(time:5,unit:"SECONDS")
-		                     }
+		                     }}
 		    stage ('fetch environment settings'){
 		    steps {sleep(time:5,unit:"SECONDS")
-		                     }
+		                     }}
 		}//parallel
 	    
 	    }
