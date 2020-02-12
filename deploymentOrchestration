@@ -36,23 +36,41 @@ pipeline {
 	    }//predeployValidations	    
     	stage('deployment lane A') {
 	    	parallel {
-			    stage('assigned release specification') {
+			    stage('drain upstream appServers') {
 			    	steps {
 			    		sleep(time:5,unit:"SECONDS")
 			    	}
 			    }	    
-			    stage('config data validation status') {
+			    stage('upgrade') {
 			    	steps {
 			    		sleep(time:5,unit:"SECONDS")
 			    	}
 			    }
-			    stage('fetch environment settings') {
+			    stage('eanble upstream apServers') {
 			    	steps {
 			    		sleep(time:5,unit:"SECONDS")
 			    	}
 			    }
 	    	}//parallel
-	    }//preparation
+	    }//deploymentLaneA
+    	stage('deployment lane B') {
+	    	parallel {
+			    stage('drain upstream appServers') {
+			    	steps {
+			    		sleep(time:5,unit:"SECONDS")
+			    	}
+			    }	    
+			    stage('upgrade') {
+			    	steps {
+			    		sleep(time:5,unit:"SECONDS")
+			    	}
+			    }
+			    stage('eanble upstream apServers') {
+			    	steps {
+			    		sleep(time:5,unit:"SECONDS")
+			    	}
+			    }
+	    	}//parallel
+	    }//deploymentLaneB
     }//Stages
  }//Pipeline
-
