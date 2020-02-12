@@ -9,9 +9,18 @@ pipeline {
 			    	}
 			    }	    
 			    stage('config data validation status') {
-			    	steps {
-			    		sleep(time:5,unit:"SECONDS")
-			    	}
+					steps {
+						SWEAGLEValidate(
+							actionName: 'Validate Config Files',
+							mdsName: 'TradeMax-PRD',
+							warnMax: -1,
+							errMax: 0,
+							markFailed: true,
+							showResults: false, 
+							retryCount: 5,
+							retryInterval: 30
+						)
+					}
 			    }
 			    stage('fetch environment settings') {
                     steps {
