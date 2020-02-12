@@ -22,10 +22,11 @@ pipeline {
 	    }//preparation
 	    stage('predeploy validation') {
 			stages ('validations') {
-				stage ('collect current settings')	    
+				stage ('collect current settings') {	    
 			    	steps {
 			    		sleep(time:5,unit:"SECONDS")
 			    	}
+			    }
 		    }
 	    }//predeployValidations	    
     }//Stages
