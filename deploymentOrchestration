@@ -20,22 +20,5 @@ pipeline {
 			    }
 	    	}//parallel
 	    }//preparation
-	    stage('preDeploy verification') {
-		    stage('collect current settings') {
-		    	steps {
-		    		sleep(time:5,unit:"SECONDS")
-		    	}
-		    }	    
-		    stage('check for unauthorized changes') {
-		    	steps {
-		    		sleep(time:5,unit:"SECONDS")
-		    	}
-		    }
-		    stage('perform sanityCheck') {
-		    	steps {
-		    		sleep(time:5,unit:"SECONDS")
-		    	}
-		    }
-	    }//predeployVerification
     }//Stages
  }//Pipeline
