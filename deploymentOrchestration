@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-    	stage('preparation') }
+    	stage('preparation') {
 	    	parallel {
 			    stage('assigned release specification') {
 			    	steps {
