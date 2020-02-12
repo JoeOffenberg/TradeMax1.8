@@ -14,9 +14,17 @@ pipeline {
 			    	}
 			    }
 			    stage('fetch environment settings') {
-			    	steps {
-			    		sleep(time:5,unit:"SECONDS")
-			    	}
+                    steps {
+                      SWEAGLEExport(
+                      actionName: 'Export TradeMax-PRD settings.json',
+                      mdsName: 'TradeMax-PRD',
+                      exporter: 'retrieveAllDataFromNode',
+                      args: "mycnf",
+                      format: 'json',
+                      fileLocation: "settings.json",
+                      markFailed: true,
+                      showResults: true)
+                    }
 			    }
 	    	}//parallel
 	    }//preparation
