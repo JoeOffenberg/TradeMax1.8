@@ -26,6 +26,7 @@ pipeline {
 			    	steps {
 			    		sleep(time:10,unit:"SECONDS")
 			    	}
+			    }
 				stage ('get previous deployment settings') {	    
 			    	steps {
 			    		sleep(time:5,unit:"SECONDS")
