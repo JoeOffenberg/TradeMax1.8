@@ -22,52 +22,52 @@ pipeline {
 	    }//preparation
 	    stage('predeploy validation') {
 			stages ('validations') {
-				stage ('collect current settings') {	    
+				stage ('validate discovered settings') {	    
 			    	steps {
 			    		sleep(time:10,unit:"SECONDS")
 			    	}
 			    }
-				stage ('get previous deployment settings') {	    
+				stage ('distribute release artifacts') {	    
 			    	steps {
-			    		sleep(time:5,unit:"SECONDS")
+			    		sleep(time:15,unit:"SECONDS")
 			    	}
 			    }
 		    }
 	    }//predeployValidations	    
     	stage('deployment lane A') {
 	    	parallel {
-			    stage('drain upstream appServers') {
+			    stage('1 - drain upstream appServers') {
 			    	steps {
 			    		sleep(time:5,unit:"SECONDS")
 			    	}
 			    }	    
-			    stage('upgrade') {
+			    stage('2 - upgrade') {
 			    	steps {
-			    		sleep(time:5,unit:"SECONDS")
+			    		sleep(time:10,unit:"SECONDS")
 			    	}
 			    }
-			    stage('eanble upstream apServers') {
+			    stage('3 - enable upstream appServers') {
 			    	steps {
-			    		sleep(time:5,unit:"SECONDS")
+			    		sleep(time:15,unit:"SECONDS")
 			    	}
 			    }
 	    	}//parallel
 	    }//deploymentLaneA
     	stage('deployment lane B') {
 	    	parallel {
-			    stage('drain upstream appServers') {
+			    stage('1 - drain upstream appServers') {
 			    	steps {
 			    		sleep(time:5,unit:"SECONDS")
 			    	}
 			    }	    
-			    stage('upgrade') {
+			    stage('2 - upgrade') {
 			    	steps {
-			    		sleep(time:5,unit:"SECONDS")
+			    		sleep(time:10,unit:"SECONDS")
 			    	}
 			    }
-			    stage('eanble upstream apServers') {
+			    stage('3 - enable upstream appServers') {
 			    	steps {
-			    		sleep(time:5,unit:"SECONDS")
+			    		sleep(time:15,unit:"SECONDS")
 			    	}
 			    }
 	    	}//parallel
