@@ -1,15 +1,18 @@
 pipeline {
     agent any
 
-    stage ('Build'){
-    steps {sleep(time:5,unit:"SECONDS")
-                     }
-    
-    }
-    
-    stage ('Deployment'){
-    steps {sleep(time:5,unit:"SECONDS")
-                     }
-    
-    }
+    stages {
+
+	    stage ('Build'){
+	    steps {sleep(time:35,unit:"SECONDS")
+	                     }
+	    
+	    }
+	    
+	    stage ('Deployment'){
+	    steps {sleep(time:35,unit:"SECONDS")
+	                     }
+	    
+	    }
+    }//Stages
  }//Pipeline
