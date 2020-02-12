@@ -14,8 +14,8 @@ pipeline {
 			    	}
 			    }
 			    stage('fetch environment settings') {
-			    	steps 
-			    		{sleep(time:5,unit:"SECONDS")
+			    	steps {
+			    		sleep(time:5,unit:"SECONDS")
 			    	}
 			    }
 	    	}//parallel
@@ -32,11 +32,10 @@ pipeline {
 		    	}
 		    }
 		    stage('perform sanityCheck') {
-		    	steps 
-		    		{sleep(time:5,unit:"SECONDS")
+		    	steps {
+		    		sleep(time:5,unit:"SECONDS")
 		    	}
 		    }
-
 	    }//predeployVerification
     }//Stages
  }//Pipeline
