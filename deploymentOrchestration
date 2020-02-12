@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+
+    stage ('Build'){
+    steps {sleep(time:5,unit:"SECONDS")
+                     }
+    
+    }
+    
+    stage ('Deployment'){
+    steps {sleep(time:5,unit:"SECONDS")
+                     }
+    
+    }
+ }//Pipeline
