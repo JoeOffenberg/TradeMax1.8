@@ -1,0 +1,93 @@
+pipeline {
+    agent any
+    stages {
+    	stage('preparation') {
+	    	parallel {
+			    stage('assigned release specification') {
+			    	steps {
+			    		sleep(time:5,unit:"SECONDS")
+			    	}
+			    }	    
+			    stage('config data validation status') {
+					steps {
+						SWEAGLEValidate(
+							actionName: 'Validate Config Files',
+							mdsName: 'TradeMax-PRD',
+							warnMax: -1,
+							errMax: 0,
+							markFailed: true,
+							showResults: false, 
+							retryCount: 5,
+							retryInterval: 30
+						)
+					}
+			    }
+			    stage('fetch environment settings') {
+                    steps {
+                      SWEAGLEExport(
+                      actionName: 'Export TradeMax-PRD settings.json',
+                      mdsName: 'TradeMax-PRD',
+                      exporter: 'retrieveAllDataFromNode',
+                      args: "mycnf",
+                      format: 'json',
+                      fileLocation: "settings.json",
+                      markFailed: true,
+                      showResults: true)
+                    }
+			    }
+	    	}//parallel
+	    }//preparation
+	    stage('predeploy validation') {
+			stages ('validations') {
+				stage ('validate discovered settings') {	    
+			    	steps {
+			    		sleep(time:10,unit:"SECONDS")
+			    	}
+			    }
+				stage ('distribute release artifacts') {	    
+			    	steps {
+			    		sleep(time:15,unit:"SECONDS")
+			    	}
+			    }
+		    }
+	    }//predeployValidations	    
+    	stage('deployment lane A') {
+	    	parallel {
+			    stage('1 - drain upstream appServers') {
+			    	steps {
+			    		sleep(time:5,unit:"SECONDS")
+			    	}
+			    }	    
+			    stage('2 - upgrade') {
+			    	steps {
+			    		sleep(time:10,unit:"SECONDS")
+			    	}
+			    }
+			    stage('3 - enable upstream appServers') {
+			    	steps {
+			    		sleep(time:15,unit:"SECONDS")
+			    	}
+			    }
+	    	}//parallel
+	    }//deploymentLaneA
+    	stage('deployment lane B') {
+	    	parallel {
+			    stage('1 - drain upstream appServers') {
+			    	steps {
+			    		sleep(time:5,unit:"SECONDS")
+			    	}
+			    }	    
+			    stage('2 - upgrade') {
+			    	steps {
+			    		sleep(time:10,unit:"SECONDS")
+			    	}
+			    }
+			    stage('3 - enable upstream appServers') {
+			    	steps {
+			    		sleep(time:15,unit:"SECONDS")
+			    	}
+			    }
+	    	}//parallel
+	    }//deploymentLaneB
+    }//Stages
+ }//Pipeline
