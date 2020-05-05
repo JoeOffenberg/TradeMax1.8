@@ -42,7 +42,7 @@ pipeline {
                 fileLocation: "*.json", 
                 format: 'json', 
                 markFailed: false, 
-                nodePath: 'Applications,TradeMax,Files', 
+                nodePath: 'Applications,TradeMax,Discovered,Files', 
                 onlyParent: false, 
                 showResults: false,
                 withSnapshot: false,
