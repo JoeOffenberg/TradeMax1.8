@@ -42,7 +42,7 @@ pipeline {
                 fileLocation: "*.json", 
                 format: 'json', 
                 markFailed: false, 
-                nodePath: 'Applications,TradeMax,Files', 
+                nodePath: 'Applications,TradeMax,Discovered,Files', 
                 onlyParent: false, 
                 showResults: false,
                 withSnapshot: false,
@@ -60,6 +60,7 @@ pipeline {
                     SWEAGLEValidate(
                     actionName: 'Validate Config Files',
                     mdsName: 'TradeMax-PRD',
+                    stored: true,
                     warnMax: -1,
                     errMax: 0,
                     markFailed: true,
