@@ -60,7 +60,7 @@ pipeline {
                     SWEAGLEValidate(
                     actionName: 'Validate Config Files',
                     mdsName: 'TradeMax-PRD',
-                    stored: true,
+                    stored: false,
                     warnMax: -1,
                     errMax: 0,
                     markFailed: true,
