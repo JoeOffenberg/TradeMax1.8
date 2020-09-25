@@ -93,7 +93,7 @@ pipeline {
               SWEAGLEExport(
               actionName: 'Export TradeMax-PRD settings.json',
               mdsName: 'TradeMax-PRD',
-              exporter: 'retrieveAllDataFromNode',
+              exporter: 'returnDataforNode',
               args: "mycnf",
               format: 'json',
               fileLocation: "settings.json",
