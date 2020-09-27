@@ -161,4 +161,9 @@ pipeline {
     }//Functional Testing
     
  } //Outer Stages
+ post {
+        always {
+            junit 'sweagle-validation.xml'
+        }
+    }
 } //Pipeline
