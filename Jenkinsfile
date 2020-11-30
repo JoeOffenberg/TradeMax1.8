@@ -3,6 +3,7 @@ pipeline {
     stages {
          stage('Retrieve Sources') {
               steps {
+	 snDevOpsStep()	      
          echo workspace
          git branch: 'master',
     	     credentialsId: '16753248-fe59-444b-b9b6-f91f07da7944',
@@ -22,7 +23,7 @@ pipeline {
         stage('UploadConfig'){
         
             steps {
-                
+                snDevOpsStep()
                 SWEAGLEUpload(
                 actionName: 'Upload Config Files', 
                 fileLocation: "WebContent/META-INF/my.cnf", 
@@ -57,6 +58,7 @@ pipeline {
         
             stage('Validate Config') {
                 steps {
+		    snDevOpsStep()	
                     SWEAGLEValidate(
                     actionName: 'Validate Config Files',
                     mdsName: 'TradeMax-PRD',
@@ -76,6 +78,7 @@ pipeline {
             
         stage('Snapshot Config') {
             steps {
+	      snDevOpsStep()	    
               SWEAGLESnapshot(
               actionName: 'Validated Snapshot TradeMax-PRD',
               mdsName: 'TradeMax-PRD',
@@ -90,6 +93,7 @@ pipeline {
         
         stage('Export Config') {
             steps {
+	      snDevOpsStep()	    
               SWEAGLEExport(
               actionName: 'Export TradeMax-PRD settings.json',
               mdsName: 'TradeMax-PRD',
@@ -110,12 +114,14 @@ pipeline {
 		stages{
     			
 			    stage('jUnit Test'){ 
-                steps {echo "Testing..."
+                steps { snDevOpsStep()
+			echo "Testing..."
                      }
                   }
                   
                 stage('SonarQube'){ 
-                steps {sh 'sonar-scanner 55'
+                steps { snDevOpsStep()
+			sh 'sonar-scanner 55'
                      }
                   }
                   
@@ -128,13 +134,17 @@ pipeline {
     
     
     stage ('Build'){
-    steps {sleep(time:35,unit:"SECONDS")
+    steps { snDevOpsStep()
+	    sleep(time:35,unit:"SECONDS")
                      }
     
     }
     
     stage ('Deployment'){
-    steps {sleep(time:35,unit:"SECONDS")
+	    
+    steps { snDevOpsStep()
+	    snDevOpsChange()
+	    sleep(time:35,unit:"SECONDS")
                      }
     
     }
@@ -143,14 +153,16 @@ pipeline {
         parallel {
        	          			
 			    stage('Selenium API'){ 
-                steps { echo "Selenium API..2..3..4"
+                steps { snDevOpsStep()
+			echo "Selenium API..2..3..4"
                 		sleep(time:25,unit:"SECONDS")
                 		echo "Selenium API..2..3..4"
                      }
                   }
                   
                 stage('Selenium UI'){ 
-                steps {	echo "Selenium UI..2..3..4"
+                steps {	snDevOpsStep()
+			echo "Selenium UI..2..3..4"
                 		sh 'selenium 35'
                 		echo "Selenium API..2..3..4"
                      }
