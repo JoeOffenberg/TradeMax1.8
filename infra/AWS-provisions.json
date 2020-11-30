@@ -360,7 +360,7 @@
 				"DBInstanceClass": "db.m1.small",
 				"MasterUsername": "master",
 				"Engine": "oracle-ee",
-				"AllocatedStorage": "12"
+				"AllocatedStorage": "10"
 			},
 			"AWS-S3": {
 				"IndexDocument": "index.html",
