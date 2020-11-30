@@ -5,8 +5,8 @@ pipeline {
               steps {
          echo workspace
          git branch: 'master',
-    	     credentialsId: 'b73f873c-e808-4fdc-aeb9-e58978f8b29f',
-             url: 'https://gitlab.com/sweagle/TradeMax.git'
+    	     credentialsId: '16753248-fe59-444b-b9b6-f91f07da7944',
+             url: 'https://github.com/JoeOffenberg/TradeMax1.8.git'
          
     	}
     }
