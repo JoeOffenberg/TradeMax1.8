@@ -80,7 +80,7 @@ pipeline {
               actionName: 'Validated Snapshot TradeMax-PRD',
               mdsName: 'TradeMax-PRD',
               description: "Validated Snapshot for Jenkins Build ${BUILD_ID}",
-              tag: "Version:1.7.${BUILD_ID}",
+              tag: "Version:1.8.${BUILD_ID}",
               markFailed: false,
               showResults: false)
               
