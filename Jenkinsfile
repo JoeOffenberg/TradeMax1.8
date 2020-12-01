@@ -12,20 +12,20 @@ pipeline {
     	}
     }
       stage ('Validation'){
-	      snDevOpsStep(enabled:true)
+	      
                                  
         parallel {
         
         stage ('Config'){
-		snDevOpsStep(enabled:true)
+		
 		stages ('Sweagle Steps'){
 		           
 		       
 
         stage('UploadConfig'){
-        	snDevOpsStep(enabled:true)
+        	
             steps {
-                
+                snDevOpsStep(enabled:true)
                 SWEAGLEUpload(
                 actionName: 'Upload Config Files', 
                 fileLocation: "WebContent/META-INF/my.cnf", 
@@ -59,9 +59,9 @@ pipeline {
         }
         
             stage('Validate Config') {
-                snDevOpsStep(enabled:true)
+                
 		    steps {
-		    	
+		    snDevOpsStep(enabled:true)	
                     SWEAGLEValidate(
                     actionName: 'Validate Config Files',
                     mdsName: 'TradeMax-PRD',
@@ -80,9 +80,9 @@ pipeline {
                 
             
         stage('Snapshot Config') {
-		snDevOpsStep(enabled:true)
+		
             steps {
-	      	    
+	      snDevOpsStep(enabled:true)	    
               SWEAGLESnapshot(
               actionName: 'Validated Snapshot TradeMax-PRD',
               mdsName: 'TradeMax-PRD',
@@ -96,9 +96,9 @@ pipeline {
         }
         
         stage('Export Config') {
-		snDevOpsStep(enabled:true)
+		
             steps {
-	      	    
+	      snDevOpsStep(enabled:true)	    
               SWEAGLEExport(
               actionName: 'Export TradeMax-PRD settings.json',
               mdsName: 'TradeMax-PRD',
@@ -119,14 +119,16 @@ pipeline {
 		stages{
     			
 			    stage('jUnit Test'){ 
-				    snDevOpsStep(enabled:true)
-                steps { echo "Testing..."
+				    
+                steps { snDevOpsStep(enabled:true)
+			echo "Testing..."
                      }
                   }
                   
                 stage('SonarQube'){ 
-			snDevOpsStep(enabled:true)
+			
                 steps { 
+			snDevOpsStep(enabled:true)
 			sh 'sonar-scanner 55'
                      }
                   }
@@ -140,8 +142,8 @@ pipeline {
     
     
     stage ('Build'){
-	    snDevOpsStep(enabled:true)
-    steps { 
+	   
+    steps { snDevOpsStep(enabled:true)
 	    sleep(time:35,unit:"SECONDS")
                      }
     
@@ -157,13 +159,14 @@ pipeline {
     }
     
     stage (Functional) {
-	     snDevOpsStep(enabled:true)
-	    
+	     
         parallel {
        	          			
 			    stage('Selenium API'){ 
-				    snDevOpsStep(enabled:true)
+				    
                 steps { 
+			snDevOpsStep(enabled:true)
+	    
 			echo "Selenium API..2..3..4"
                 		sleep(time:25,unit:"SECONDS")
                 		echo "Selenium API..2..3..4"
@@ -171,8 +174,9 @@ pipeline {
                   }
                   
                 stage('Selenium UI'){ 
-			snDevOpsStep(enabled:true)
+			
                 steps {	
+			snDevOpsStep(enabled:true)
 			echo "Selenium UI..2..3..4"
                 		sh 'selenium 35'
                 		echo "Selenium API..2..3..4"
