@@ -67,7 +67,7 @@
 					"size": "0.25",
 					"instancetype": "t2.nano"
 				},
-				"volumesize": "50",
+				"volumesize": "60",
 				"description": "aws-base-image",
 				"instancetype": "t2.micro",
 				"medium": {
