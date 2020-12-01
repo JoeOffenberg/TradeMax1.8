@@ -150,9 +150,10 @@ pipeline {
     }
     
     stage ('Deployment'){
+	   
+    steps {
 	    snDevOpsStep(enabled:true)
 	    snDevOpsChange()
-    steps {
 	    sleep(time:35,unit:"SECONDS")
                      }
     
