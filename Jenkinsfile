@@ -72,8 +72,9 @@ pipeline {
                     showResults: false, 
                     retryCount: 5,
                     retryInterval: 30)
+		    junit 'sweagle-validation.xml'	    
                     }
-		    junit 'sweagle-validation.xml'
+		   
             	}	
             
             
