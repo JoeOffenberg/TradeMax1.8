@@ -59,7 +59,7 @@
 					"instancetype": "t2.x-large"
 				},
 				"imageid": "ami-fsdgas",
-				"size": "0.5",
+				"size": "0.7",
 				"micro": {
 					"instancetype": "t2.micro"
 				},
