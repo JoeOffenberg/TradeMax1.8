@@ -124,6 +124,8 @@ pipeline {
 				    
                 steps { snDevOpsStep(enabled:true)
 			echo "Testing..."
+		        junit 'tests/junitResults.xml'
+		        
                      }
                   }
                   
